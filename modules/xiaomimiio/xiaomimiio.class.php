@@ -936,7 +936,32 @@ array('did'=>'water_box_carriage_status','siid'=>4,'piid'=>6),
 
             );
             $this->addToQueue($device_id, 'get_properties', json_encode($props));
-        }
+        } elseif ($device_rec['DEVICE_TYPE'] == 'dreame.vacuum.r2211o') {
+            $props = array(
+                array('did' => 'device_mode', 'siid' => 2, 'piid' => 3),
+                array('did' => 'device_fault', 'siid' => 2, 'piid' => 2),
+                array('did' => 'device_status', 'siid' => 2, 'piid' => 1),
+                array('did' => 'room_ids', 'siid' => 2, 'piid' => 4),
+                array('did' => 'battery_level', 'siid' => 3, 'piid' => 1),
+                array('did' => 'charging_state', 'siid' => 3, 'piid' => 2),
+                array('did' => 'operating_mode', 'siid' => 4, 'piid' => 1),
+                array('did' => 'cleaning_time', 'siid' => 4, 'piid' => 2),
+                array('did' => 'cleaning_area', 'siid' => 4, 'piid' => 3),
+                array('did' => 'cleaning_mode', 'siid' => 4, 'piid' => 4),
+                array('did' => 'mop_mode', 'siid' => 4, 'piid' => 5),
+                array('did' => 'cleanlog_status', 'siid' => 4, 'piid' => 13),
+                array('did' => 'timer_enable', 'siid' => 5, 'piid' => 1),
+                array('did' => 'audio_volume', 'siid' => 7, 'piid' => 1),
+                array('did' => 'brush_left_time', 'siid' => 9, 'piid' => 1),
+                array('did' => 'brush_life_level', 'siid' => 9, 'piid' => 2),
+                array('did' => 'brush_left_time2', 'siid' => 10, 'piid' => 1),
+                array('did' => 'brush_life_level2', 'siid' => 10, 'piid' => 2),
+                array('did' => 'filter_life_level', 'siid' => 11, 'piid' => 1),
+                array('did' => 'filter_left_time', 'siid' => 11, 'piid' => 2),
+            );
+
+                $this->addToQueue($device_id, 'get_properties', json_encode($props));
+    }
 
     }
 
@@ -1197,7 +1222,25 @@ array('did'=>'water_box_carriage_status','siid'=>4,'piid'=>6),
                                 $this->addToQueue($properties[$i]['DEVICE_ID'], $value, '[]');
                             }
                             $this->addToQueue($properties[$i]['DEVICE_ID'], 'action', $params);
-                        } else if ($properties[$i]['DEVICE_TYPE'] == 'mmgg.pet_waterer.s1') {
+                        } else if ($properties[$i]['DEVICE_TYPE'] == 'dreame.vacuum.r2211o') {
+                            if ($value == 'app_start') {
+                                $params = '{"did":"app_start","siid":4,"aiid":1}';
+                            } else if ($value == 'app_stop') {
+                                $params = '{"did":"app_stop","siid":4,"aiid":2}';
+                            } else if ($value == 'app_charge') {
+                                $params = '{"did":"app_charge","siid":3,"aiid":1}';
+                            } else if ($value == 'find_me') {
+                                $params = '{"did":"find_me","siid":7,"aiid":2}';
+                            } else if ($value == 'start_sweep') {
+                                $params = '{"did":"start_sweep","siid":2,"aiid":1}';
+                            } else if ($value == 'stop_sweep') {
+                                $params = '{"did":"stop_sweep","siid":2,"aiid":2}';
+                            } else {
+                                $this->addToQueue($properties[$i]['DEVICE_ID'], $value, '[]');
+                            }
+                            $this->addToQueue($properties[$i]['DEVICE_ID'], 'action', $params);
+                        }
+                        else if ($properties[$i]['DEVICE_TYPE'] == 'mmgg.pet_waterer.s1') {
                             if ($value == 'reset-filter-life') {
                                 $params = '{"did":"reset-filter-life","siid":3,"aiid":1}';
                             } else if ($value == 'reset-cotton-life') {
@@ -2927,7 +2970,78 @@ array('did'=>'water_box_carriage_status','siid'=>4,'piid'=>6),
                     }
                     $res_commands[] = array('command' => $res['did'], 'value' => $value);
                 }
-            } elseif ($command == 'get_properties' && is_array($data['result'])) {
+            } elseif (($device['DEVICE_TYPE'] == 'dreame.vacuum.r2211o')
+                && $command == 'get_properties'
+                && is_array($data['result'])) {
+                foreach ($data['result'] as $res) {
+                    $value = $res['value'];
+                    if ($value === true) $value = 1;
+                    else if ($value === false) $value = 0;
+                    if ($res['did'] == 'device_status') {
+                        switch ($value) {
+                            case 1: $value_text = 'Sweeping'; break;
+                            case 2: $value_text = 'Idle'; break;
+                            case 3: $value_text = 'Paused'; break;
+                            case 4: $value_text = 'Error'; break;
+                            case 5: $value_text = 'Go Charging'; break;
+                            case 6: $value_text = 'Charging'; break;
+                            case 7: $value_text = 'Mopping'; break;
+                            case 12: $value_text = 'Sweeping and Mopping'; break;
+                            case 13: $value_text = 'Charging Completed'; break;
+                            default: $value_text = $value;
+                        }
+                        $res_commands[] = array('command' => 'device_status_text', 'value' => $value_text);
+                    }
+                    if ($res['did'] == 'device_mode') {
+                        switch ($value) {
+                            case 0: $value_text = 'Silent'; break;
+                            case 1: $value_text = 'Basic'; break;
+                            case 2: $value_text = 'Strong'; break;
+                            case 3: $value_text = 'Full Speed'; break;
+                            default: $value_text = 'Unknown';
+                        }
+                        $res_commands[] = array('command' => 'device_mode_text', 'value' => $value_text);
+                    }
+                    if ($res['did'] == 'charging_state') {
+                        switch ($value) {
+                            case 1: $value_text = 'Charging'; break;
+                            case 2: $value_text = 'Not Charging'; break;
+                            case 5: $value_text = 'Go Charging'; break;
+                            default: $value_text = $value;
+                        }
+                        $res_commands[] = array('command' => 'charging_state_text', 'value' => $value_text);
+                    }
+                    if ($res['did'] == 'cleaning_mode') {
+                        switch ($value) {
+                            case 0: $value_text = 'Quiet'; break;
+                            case 1: $value_text = 'Standard'; break;
+                            case 2: $value_text = 'Medium'; break;
+                            case 3: $value_text = 'Strong'; break;
+                            default: $value_text = $value;
+                        }
+                        $res_commands[] = array('command' => 'cleaning_mode_text', 'value' => $value_text);
+                    }
+                    if ($res['did'] == 'mop_mode') {
+                        switch ($value) {
+                            case 1: $value_text = 'Low'; break;
+                            case 2: $value_text = 'Medium'; break;
+                            case 3: $value_text = 'High'; break;
+                            default: $value_text = $value;
+                        }
+                        $res_commands[] = array('command' => 'mop_mode_text', 'value' => $value_text);
+                    }
+                    if ($res['did'] == 'cleanlog_status') {
+                        switch ($value) {
+                            case 0: $value_text = 'Interrupted'; break;
+                            case 1: $value_text = 'Completed Clean'; break;
+                            default: $value_text = $value;
+                        }
+                        $res_commands[] = array('command' => 'cleanlog_status_text', 'value' => $value_text);
+                    }
+                    $res_commands[] = array('command' => $res['did'], 'value' => $value);
+                }
+            }
+            elseif ($command == 'get_properties' && is_array($data['result'])) {
                 foreach ($data['result'] as $res) {
                     $value = $res['value'];
                     if ($value === true) $value = 1;

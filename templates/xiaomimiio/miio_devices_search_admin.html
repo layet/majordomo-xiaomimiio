@@ -1,13 +1,12 @@
 
 <!-- table miio_devices search -->
 <br/>
-<p>
+<div class="row">
 <a href="?view_mode=edit_miio_devices&data_source=<#DATA_SOURCE#>" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> <#LANG_ADD#></a>
  <a href="?view_mode=discover" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> <#LANG_RESCAN_DEVICES#></a>
  <a href="?view_mode=get_tokens" class="btn btn-default"><i class="glyphicon glyphicon-lock"></i> Получить токены</a>
-</p>
-<table width=100% border=0><tr>
-<td valign=top>
+</div>
+<div class="row">
 <!-- results -->
 [#if RESULT#]
 <!-- paging -->
@@ -208,15 +207,13 @@
 		&nbsp;
 	[#endif#]
  </td>
- <td style="vertical-align:middle" width="1%" nowrap>
-	<div style="width:130px">
+ <td style="vertical-align:middle">
 	[#if "<#ACTION#>"=="admin"#]
 		<a href="?data_source=<#DATA_SOURCE#>&view_mode=propupd_miio_devices&id=[#ID#]" class="btn btn-default [#if TOKEN=="" || ONLINE==0 || DEVICE_TYPE==""#]disabled[#endif#]" title="<#LANG_XIMI_APP_CURRENT#>"><i class="glyphicon glyphicon-refresh"></i></a>
 		<a href="?data_source=<#DATA_SOURCE#>&view_mode=edit_miio_devices&id=[#ID#]&tab=data" class="btn btn-default" title="<#LANG_DATA#>"><#LANG_DATA#></a>
 		<a href="?data_source=<#DATA_SOURCE#>&view_mode=edit_miio_devices&id=[#ID#]" class="btn btn-default" title="<#LANG_EDIT#>"><i class="glyphicon glyphicon-pencil"></i></a>
 		<a href="?data_source=<#DATA_SOURCE#>&view_mode=delete_miio_devices&id=[#ID#]" onClick="return confirm('<#LANG_STRING_DELETE_CONFIRM#>')" class="btn btn-default" title="<#LANG_DELETE#>"><i class="glyphicon glyphicon-remove"></i></a>
 	[#endif ACTION#]
-	</div>
  </td>
 </tr>
 [#end RESULT#]
@@ -246,4 +243,4 @@
 </p>
 [#endif RESULT#]
 <!-- / results -->
-</td></tr></table>
+</div>

@@ -1,0 +1,154 @@
+<br>
+<div>
+	<table border="0" cellpadding="8">
+		<tr>
+        <td rowspan="2" style="width:65px">
+			[#if DEVICE_TYPE!=""#]
+				<img src="../templates/xiaomimiio/img/small/[#DEVICE_TYPE#].png" height="60px" onError="this.src='../templates/xiaomimiio/img/small/unknown.png'">
+			[#else#]
+				<img src="../templates/xiaomimiio/img/small/unknown.png" height="60px">
+			[#endif#]
+		</td>
+        <td style="height:33px;vertical-align:middle"><b>Mi Robot Vacuum S10+</b></td>
+        <td style="height:33px;vertical-align:middle">IP: <b>[#IP#]</b></td>
+		</tr>
+		<tr>
+        <td style="height:33px;vertical-align:middle">Модель: <b>[#DEVICE_TYPE#]</b></td>
+        <td style="height:33px;vertical-align:middle">Системный ID: <span class="badge">[#ID#]</span></td>
+		</tr>
+	</table>
+</div>
+<br>
+<div class="panel-group" id="accordion" style="width:98%">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<a data-toggle="collapse" data-parent="#accordion" href="#metrics_help">Индивидуальные метрики</a>
+		</div>
+		<div class="panel-body collapse" id="metrics_help">
+			<div style="width:800px">
+				<table class="table table-hover" align="left">
+				<thead>
+					<th>Метрика</th><th>Описание</th><th>Значения</th><th nowrap>Чтение/запись</th>
+				</thead>
+				<tbody>
+					<tr><td><b>command</b></td><td>Управление пылесосом. Возможные команды: <i><b>app_start</i></b> (начать уборку), <i><b>app_stop</i></b> (остановить уборку), <i><b>app_pause</i></b> (приостановить уборку), <i><b>find_me</i></b> (подать звуковой сигнал для поиска), <i><b>start_sweep</i></b>, <i><b>stop_sweep</i></b></td><td>команда</td><td>Запись</td></tr>
+					<tr>
+						<td><b>audio_volume</b></td>
+						<td>Громкость динамика пылесоса</td>
+						<td>%</td>
+						<td nowrap>Чтение и запись</td>
+					</tr>
+					<tr>
+						<td><b>battery_level</b></td>
+						<td>Уровень заряда аккумулятора</td>
+						<td>%</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr><td><b>brush_left_time</b></td><td>Предполагаемый ресурс работы основной щетки</td><td>часы</td><td nowrap>Чтение</td></tr>
+					<tr><td><b>brush_left_time2</b></td><td>Предполагаемый ресурс работы боковой щетки</td><td>часы</td><td nowrap>Чтение</td></tr>
+					<tr><td><b>brush_life_level</b></td><td>Остаток ресурса основной щетки</td><td>%</td><td nowrap>Чтение</td></tr>
+					<tr><td><b>brush_life_level2</b></td><td>Остаток ресурса боковой щетки</td><td>%</td><td nowrap>Чтение</td></tr>
+					<tr>
+						<td><b>charging_state</b></td>
+						<td>Цифровой код статуса зарядки</td>
+						<td>число</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr>
+						<td><b>charging_state_text</b></td>
+						<td>Cтатус зарядки:<li>Charging</li><li>Not Charging</li><li>Go Charging</li></td>
+						<td>строка</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr>
+						<td><b>cleaning_area</b></td>
+						<td>Общая площадь уборки</td>
+						<td>кв. м.</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr>
+						<td><b>cleaning_mode</b></td>
+						<td>Цифровой код режима чистки</td>
+						<td>число</td>
+						<td nowrap>Чтение и запись</td>
+					</tr>
+					<tr>
+						<td><b>cleaning_mode_text</b></td>
+						<td>Режим чистки:<li>Quiet</li><li>Standard</li><li>Medium</li><li>Strong</li></td>
+						<td>строка</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr>
+						<td><b>cleaning_time</b></td>
+						<td>Общее время уборки</td>
+						<td>мин.</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr>
+						<td><b>device_mode</b></td>
+						<td>device_mode</td>
+						<td>число</td>
+						<td nowrap>Чтение и запись</td>
+					</tr>
+					<tr>
+						<td><b>device_mode_text</b></td>
+						<td>device_mode_text</td>
+						<td>строка</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr>
+						<td><b>device_status</b></td>
+						<td>Цифровой код статуса</td>
+						<td>число</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr>
+						<td><b>device_status_text</b></td>
+						<td>Статус:
+							<li>Idle</li>
+							<li>Sweeping</li>
+							<li>Building</li>
+							<li>Paused</li>
+							<li>Error</li>
+							<li>Go Charging</li>
+							<li>Charging</li>
+							<li>Mopping</li>
+							<li>Sweeping and Mopping</li>
+							<li>Charging Completed</li>
+						</td>
+						<td>строка</td>
+						<td nowrap>Чтение</td>
+					</tr>
+					<tr><td><b>filter_life_level</b></td><td>Остаток ресурса фильтра</td><td>%</td><td nowrap>Чтение</td></tr>
+					<tr><td><b>filter_left_time</b></td><td>Предполагаемый ресурс работы фильтра</td><td>часы</td><td nowrap>Чтение</td></tr>
+
+
+            	</tbody>
+				</table> 
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<a data-toggle="collapse" data-parent="#accordion" href="#base_metrics_help">Базовые метрики</a>
+		</div>
+		<div class="panel-body collapse" id="base_metrics_help">
+			<div style="width:800px">
+				<table class="table table-hover" align="left">
+				<thead>
+					<th>Метрика</th><th>Описание</th><th>Значения</th><th nowrap>Чтение/запись</th>
+				</thead>
+				<tbody>
+					<tr><td><b>online</b></td><td>Доступность устройства (онлайн/оффлайн).</td><td>1 и 0</td><td nowrap>Чтение</td></tr>
+					<tr><td><b>message</b></td><td>Последнее принятое от устройства сообщение.</td><td>json</td><td>Чтение</td></tr>
+				</tbody>
+				</table> 
+			</div>
+		</div>
+	</div>
+
+</div>
+<br>
+<div>
+	<a href="?data_source=<#DATA_SOURCE#>" class="btn btn-default"><#LANG_STRING_BACK#></a>
+</div>

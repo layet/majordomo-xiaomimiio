@@ -24,38 +24,39 @@
 6. Пылесос ***Mi Vacuum Cleaner***
 7. Пылесос ***Mi Roborock S50/S51***
 8. Пылесос ***Mi Robot Vacuum-Mop P***
-9. Настольная лампа ***Philips EyeCare Smart Desk Lamp 2***
-10. Лампочка белая Е27 ***Philips Light Bulb***
-11. Лампочка белая Е27 ***Yeelight White Bulb***
-12. Лампочка цветная Е27 ***Yeelight Color Bulb***
-13. Лампочки ***Philips Rui Chi Candle Light Bulb***
-14. Настольная лампа ***Mi LED Desk Lamp***
-15. Потолочный светильник ***Yeelight Ceiling Light***
-16. Потолочный светильник ***Yeelight Square Ceiling Light***
-17. Потолочный светильник ***Yeelight Jiaoyue 650 Ceiling Light***
-18. Потолочный светильник ***Yeelight Bright Moon LED Intelligent Ceiling***
-19. Потолочный светильник ***Philips EyeCare Smart Ceiling Lamp***
-20. Светодиодная лента ***Yeelight LED Lightstrip***
-21. Удлинитель (5 розеток) ***Mi (Chingmi) Smart Power Strip 5 Plugs***
-22. Удлинитель (6 розеток) ***Mi Smart Power Strip 6 Plugs***
-23. Увлажнитель воздуха ***Mi Air Humidifier***
-24. Увлажнитель воздуха ***Mi Air Humidifier 2***
-25. Увлажнитель воздуха ***Mi Air Humidifier MJJSQ***
-26. Очиститель воздуха ***Mi Air Purifier v3***
-27. Очиститель воздуха ***Mi Air Purifier 2S***
-28. Очиститель воздуха ***Mi Air Purifier 3/3H***
-29. Термопот ***Mi Heating Water Dispenser MINI (R1/R2)***
-30. Термопот ***Mi Heating Water Dispenser 4A (R3)***
-31. IR-контроллер ***Mi IR Remote 360***
-32. WiFi-колонка ***Mi Internet Speaker***
-33. Ночник ***Yeelight Bedside Lamp***
-34. Светильник (спот) ***Philips Zhirui Downlight***
-35. Напольный вентилятор ***Mi Smart Fan SA1***
-36. Анализатор качества воздуха ***Mi ClearGrass Air Monitor S1***
-37. Анализатор качества воздуха ***Mi ClearGrass Air Monitor B1***
-38. Ультрафиолетовая лампа ***Mi Five Disinfection Lamp***
-39. Трехканальный выключатель ***Mi PTX ThreeKey Switch***
-40. Аквариум ***Mi Smart Fish Tank***
+9. Пылесос ***Xiaomi Robot Vacuum S10+***
+10. Настольная лампа ***Philips EyeCare Smart Desk Lamp 2***
+11. Лампочка белая Е27 ***Philips Light Bulb***
+12. Лампочка белая Е27 ***Yeelight White Bulb***
+13. Лампочка цветная Е27 ***Yeelight Color Bulb***
+14. Лампочки ***Philips Rui Chi Candle Light Bulb***
+15. Настольная лампа ***Mi LED Desk Lamp***
+16. Потолочный светильник ***Yeelight Ceiling Light***
+17. Потолочный светильник ***Yeelight Square Ceiling Light***
+18. Потолочный светильник ***Yeelight Jiaoyue 650 Ceiling Light***
+19. Потолочный светильник ***Yeelight Bright Moon LED Intelligent Ceiling***
+20. Потолочный светильник ***Philips EyeCare Smart Ceiling Lamp***
+21. Светодиодная лента ***Yeelight LED Lightstrip***
+22. Удлинитель (5 розеток) ***Mi (Chingmi) Smart Power Strip 5 Plugs***
+23. Удлинитель (6 розеток) ***Mi Smart Power Strip 6 Plugs***
+24. Увлажнитель воздуха ***Mi Air Humidifier***
+25. Увлажнитель воздуха ***Mi Air Humidifier 2***
+26. Увлажнитель воздуха ***Mi Air Humidifier MJJSQ***
+27. Очиститель воздуха ***Mi Air Purifier v3***
+28. Очиститель воздуха ***Mi Air Purifier 2S***
+29. Очиститель воздуха ***Mi Air Purifier 3/3H***
+30. Термопот ***Mi Heating Water Dispenser MINI (R1/R2)***
+31. Термопот ***Mi Heating Water Dispenser 4A (R3)***
+32. IR-контроллер ***Mi IR Remote 360***
+33. WiFi-колонка ***Mi Internet Speaker***
+34. Ночник ***Yeelight Bedside Lamp***
+35. Светильник (спот) ***Philips Zhirui Downlight***
+36. Напольный вентилятор ***Mi Smart Fan SA1***
+37. Анализатор качества воздуха ***Mi ClearGrass Air Monitor S1***
+38. Анализатор качества воздуха ***Mi ClearGrass Air Monitor B1***
+39. Ультрафиолетовая лампа ***Mi Five Disinfection Lamp***
+40. Трехканальный выключатель ***Mi PTX ThreeKey Switch***
+41. Аквариум ***Mi Smart Fish Tank***
 
 ### Документация по модулю
 * [Общие сведения](https://kb.mjdm.ru/xiaomimiio_help/)
